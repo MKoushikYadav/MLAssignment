@@ -30,19 +30,21 @@ Next we tagged our docker image with the following command <br><br>
 where devops/devops was the local image name and the next one was the GCP image name.<br>
 
 This would push the image to google cloud artifact registry.<br>
-Next we create a new kubernetes cluster and then deploy this image by selecting it in the artifact registry.<br>
+Next, we create a new Kubernetes cluster and then deploy this image by selecting it in the artifact registry.<br>
 Finally in the options for the cluster. We choose to expose the image's port number 5000 i.e the port where flask is running. This way we have our ML api ready and deployed.<br><br>
 
 ### Automated Testing
 To implement a continuous integration pipeline, we decided to choose the travis CI for its easy to use tool and since our project is a very small scale.<br><br>
 To do this, we first created some unit tests in a python file called test.py and pushed it to the git repo.<br>
 We then simply added a .travis.yml file to the repo which is a CI configuration/instruction file.<br>
-We set it up to run python 3.9, then install all our requirements and then to run the test.py file.<br><br>
+We set it up to run Python 3.9, then install all our requirements and then to run the test.py file.<br><br>
 
-On the travis CI website, we linked our git repo and added the travis CI user. We then proceeded to push the file on which travis which listened to the repo, with python 3.9 ran 2 unit tests.
+On the travis CI website, we linked our git repo and added the travis CI user. We then proceeded to push the file on which Travis listened to the repo and with Python 3.9 ran 2 unit tests.
 <br><br><br>
-The test logs from travis:
-<code>Downloading archive: https://storage.googleapis.com/travis-ci-language-archives/python/binaries/ubuntu/16.04/x86_64/python-3.9.tar.bz2
+The test logs from travis: <br>
+
+<code>
+Downloading archive: https://storage.googleapis.com/travis-ci-language-archives/python/binaries/ubuntu/16.04/x86_64/python-3.9.tar.bz2
 0.36s$ curl -sSf --retry 5 -o python-3.9.tar.bz2 ${archive_url}
 10.98s$ sudo tar xjf python-3.9.tar.bz2 --directory /
 0.00s
@@ -63,6 +65,4 @@ install
 Ran 2 tests in 0.010s
 OK
 The command "python test.py" exited with 0.
-Done. Your build exited with 0.</code>
-
-###
+Done. Your build exited with 0. </code>
