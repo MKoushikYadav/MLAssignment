@@ -3,6 +3,7 @@ This project is an MLOPs assignment that has a basic ML model that predicts the 
 It takes the head size as the feature (x) and the brain weight as the label(Y).
 This is a basic flask application that exposes the ML model to a port. The flask server takes the head size JSON input and returns brain weight JSON.
 
+##### Use any API Clients to access the API. The API accepts post requests to the direct link.
 #### Format for input JSON   
 <code>{"number": anyNumber} 
 </code>
